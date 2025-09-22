@@ -22,18 +22,22 @@ namespace WpfAplicacionAgendaPersonal
         }
         private void ButtonMenu(object sender, RoutedEventArgs e)
         {
-            txtSeccion.Text = "Sección Menu";
+            //txtSeccion.Text = "Sección Menu";
+            MainFrame.Navigate(new Menu());
 
         }
 
         private void ButtonContactos(object sender, RoutedEventArgs e)
         {
-            txtSeccion.Text = "Sección Contactos";
+            //txtSeccion.Text = "Sección Contactos";
+
+            MainFrame.Navigate(new Contacto());
         }
 
         private void ButtonCitas(object sender, RoutedEventArgs e)
         {
-            txtSeccion.Text = "Sección Citas";
+            //txtSeccion.Text = "Sección Citas";
+            MainFrame.Navigate(new Citas());
         }
     }
 }
