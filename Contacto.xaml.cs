@@ -23,6 +23,20 @@ namespace WpfAplicacionAgendaPersonal
         public Contacto()
         {
             InitializeComponent();
+
+            List<Contactos> ListaContacto = new List<Contactos>
+            {
+                new Contactos(nombre: "Juan", apellido1: "Gonzalez", apellido2: "Perez", creacion: DateTime.Now, genero: "Hombre"),
+                new Contactos(nombre: "Paco", apellido1: "Juarez", apellido2: "Perez", creacion: DateTime.Now, genero: "Hombre"),
+                new Contactos(nombre: "Javier", apellido1: "Quevedo", apellido2: "Perez", creacion: DateTime.Now, genero: "Hombre"),
+                new Contactos(nombre: "Domingo", apellido1: "Dominguez", apellido2: "Perez", creacion: DateTime.Now, genero: "Hombre"),
+                new Contactos(nombre: "Ivan", apellido1: "Sanchez", apellido2: "Perez", creacion: DateTime.Now, genero: "Hombre"),
+                new Contactos(nombre: "Mario", apellido1: "Martinez", apellido2: "Perez", creacion: DateTime.Now, genero: "Hombre"),
+                new Contactos(nombre: "Jose", apellido1: "Perez", apellido2: "Perez", creacion: DateTime.Now, genero: "Hombre"),
+                new Contactos(nombre: "Jorge", apellido1: "Dominguez", apellido2: "Perez", creacion: DateTime.Now, genero: "Hombre"),
+            };
+            // Asignar la lista al ListBox(llamado ListaCitasInterfaz)
+            ListaContactosInterfaz.ItemsSource = ListaContacto;
         }
     }
 }

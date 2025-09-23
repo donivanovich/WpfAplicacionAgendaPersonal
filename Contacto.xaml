@@ -9,12 +9,27 @@
       Title="Contacto">
 
     <Grid>
-        <TextBlock
+        <StackPanel>
+            <TextBlock
             Text="Página de Contactos"
             FontSize="24"
             FontWeight="Bold"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
         />
+            <ListBox
+            x:Name="ListaContactosInterfaz"
+            >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="5">
+                            <TextBlock Text="{Binding Nombre}" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Apellido1}" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Genero}" FontWeight="Bold"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
     </Grid>
 </Page>
