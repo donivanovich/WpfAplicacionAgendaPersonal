@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,11 +21,12 @@ namespace WpfAplicacionAgendaPersonal
     /// </summary>
     public partial class Contacto : Page
     {
+        ObservableCollection<Contactos> ListaContacto;
         public Contacto()
         {
             InitializeComponent();
 
-            List<Contactos> ListaContacto = new List<Contactos>
+            ListaContacto = new ObservableCollection<Contactos>
             {
                 new Contactos(nombre: "Juan", apellido1: "Gonzalez", apellido2: "Perez", creacion: DateTime.Now, genero: "Hombre"),
                 new Contactos(nombre: "Paco", apellido1: "Juarez", apellido2: "Perez", creacion: DateTime.Now, genero: "Hombre"),
@@ -37,6 +39,16 @@ namespace WpfAplicacionAgendaPersonal
             };
             // Asignar la lista al ListBox(llamado ListaCitasInterfaz)
             ListaContactosInterfaz.ItemsSource = ListaContacto;
+        }
+
+        private void BtnAgregarContacto_Click(object sender, RoutedEventArgs e)
+        {
+            ComboBoxItem itemSeleccionado = (ComboBoxItem)ComboGenero.SelectedItem;
+            string genero = itemSeleccionado.Content.ToString();
+            ListaContacto.Add(new Contactos(nombre: TxtNombre.Text, apellido1: TxtApellido.Text, apellido2: "", creacion: DateTime.Now, genero: genero));
+            TxtNombre.Clear();
+            TxtApellido.Clear();
+            ComboGenero.SelectedIndex = -1;
         }
     }
 }
